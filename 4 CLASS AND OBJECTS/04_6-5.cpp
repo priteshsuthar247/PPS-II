@@ -4,21 +4,33 @@ class student
 {
     public:
     int rollno,marks[6],i;
-    float per=0;
-    char name[20];
+    float per;
+    string name;
+    student();
     void get_data();
     void calc_percentage();
     void display();
+    ~student();
 };
+student::student()
+{
+    rollno=0,i=0,per=0;
+    name={0};
+    for (int i = 0; i < 6; i++)
+    {
+        marks[i]=0;
+    }
+    cout<<"Consturctor Invoked"<<endl;
+}
 void student::get_data()
 {
-    cout<<"Name: ";
+    cout<<"Name : ";
     cin>>name;
-    cout<<"Roll No: ";
+    cout<<"Roll No : ";
     cin>>rollno;
     for (i = 0; i < 6; i++)
     {
-        cout<<"Subject "<<i+1<<": ";
+        cout<<"Subject "<<i+1<<" : ";
         cin>>marks[i];
     }
 }
@@ -32,13 +44,13 @@ void student::calc_percentage()
 }
 void student::display()
 {
-    cout<<"Name: "<<name<<endl;
-    cout<<"Roll No: "<<rollno<<endl;
+    cout<<"Name : "<<name<<endl;
+    cout<<"Roll No. : "<<rollno<<endl;
     for ( i = 0; i < 6; i++)
     {
-        cout<<"Subject "<<i+1<<": "<<marks[i]<<endl;
+        cout<<"Subject "<<i+1<<" : "<<marks[i]<<endl;
     }
-    cout<<"Percentage: "<<per<<"%"<<endl;
+    cout<<"Percentage : "<<per<<"%"<<endl;
     if (per<=100 && per>=80)
     {
         cout<<"Distinction"<<endl;
@@ -53,8 +65,12 @@ void student::display()
     }
     else 
     {
-        cout<<"Fail";
+        cout<<"Fail"<<endl;
     }
+}
+student::~student()
+{
+    cout<<"Destructor Invoked"<<endl;
 }
 int main()
 {
