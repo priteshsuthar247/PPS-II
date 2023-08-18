@@ -4,7 +4,7 @@ using namespace std;
 int main()
 {
 	string line;
-	ifstream ini_file{"1.txt"};
+	ifstream ini_file{"01.txt"};
 	ofstream out_file{ "copy.txt" };
 	if (ini_file && out_file)
     {
